@@ -26,10 +26,10 @@ const PORT = process.env.PORT || 3000;
 const cron = require("node-cron");
 
 //Call every one min
-/*cron.schedule("* * * * *", function () {
+cron.schedule("* * * * *", function () {
   console.log("running a task every minute");
   request(
-    `http://localhost:3000/api/v1/searchVaccine/725`,
+    `http://localhost:${process.env.PORT}/api/v1/searchVaccine/725`,
     function (error, response, body) {
       if (!error) {
         console.log(body);
@@ -38,7 +38,7 @@ const cron = require("node-cron");
       }
     }
   );
-});*/
+});
 
 app.listen(PORT, () => {
   console.log(`server is up.. listening to port ${PORT}`);
